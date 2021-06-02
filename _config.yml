@@ -30,7 +30,7 @@ twitter_username: endreawik
 github_username:  endreawik
 
 # Build settings
-theme: jekyll-theme-cayman
+theme: minima
 plugins:
   - jekyll-feed
 
