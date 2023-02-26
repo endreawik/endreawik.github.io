@@ -1,9 +1,9 @@
 ---
 title:          about
-layout:         page
+layout:         default
 sidebar_link:   true
 ---
 
-### Endre A Wik
+### About
 
 about.md
