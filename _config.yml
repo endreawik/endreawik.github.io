@@ -1,3 +1,5 @@
 title:        Endre A Wik
 description:  I was born for this
 baseurl:      /
+
+disable_edit: true
