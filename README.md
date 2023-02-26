@@ -1,118 +1,113 @@
-# Hyde
+# just-the-docs-template
 
-Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+This is a *bare-minimum* template to create a [Jekyll] site that:
 
-![Hyde screenshot](https://f.cloud.github.com/assets/98681/1831228/42af6c6a-7384-11e3-98fb-e0b923ee0468.png)
+- uses the [Just the Docs] theme;
+- can be built and published on [GitHub Pages];
+- can be built and previewed locally, and published on other platforms.
 
+More specifically, the created site:
 
-## Contents
+- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem;
+- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages.
 
-- [Usage](#usage)
-- [Options](#options)
-  - [Sidebar menu](#sidebar-menu)
-  - [Sticky sidebar content](#sticky-sidebar-content)
-  - [Themes](#themes)
-  - [Reverse layout](#reverse-layout)
-- [Development](#development)
-- [Author](#author)
-- [License](#license)
+To get started with creating a site, just click "[use this template]"!
 
+After completing the creation of your new site on GitHub, update it as needed:
 
-## Usage
+## Replace the content of the template pages
 
-Hyde is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
+Update the following files to your own content:
 
+- `index.md` (your new home page)
+- `README.md` (information for those who access your site repo on GitHub)
 
-## Options
+## Changing the version of the theme and/or Jekyll
 
-Hyde includes some customizable options, typically applied via classes on the `<body>` element.
+Simply edit the relevant line(s) in the `Gemfile`.
 
+## Adding a plugin
 
-### Sidebar menu
+The Just the Docs theme automatically includes the [`jekyll-seo-tag`] plugin.
 
-Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
+To add an extra plugin, you need to add it in the `Gemfile` *and* in `_config.yml`. For example, to add [`jekyll-default-layout`]:
 
-```
----
-layout: page
-title: About
----
-```
+- Add the following to your site's `Gemfile`:
 
-**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
+  ```ruby
+  gem "jekyll-default-layout"
+  ```
 
+- And add the following to your site's `_config.yml`:
 
-### Sticky sidebar content
+  ```yaml
+  plugins:
+    - jekyll-default-layout
+  ```
 
-By default Hyde ships with a sidebar that affixes it's content to the bottom of the sidebar. You can optionally disable this by removing the `.sidebar-sticky` class from the sidebar's `.container`. Sidebar content will then normally flow from top to bottom.
+Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
 
-```html
-<!-- Default sidebar -->
-<div class="sidebar">
-  <div class="container sidebar-sticky">
-    ...
-  </div>
-</div>
+## Publishing your site on GitHub Pages
 
-<!-- Modified sidebar -->
-<div class="sidebar">
-  <div class="container">
-    ...
-  </div>
-</div>
-```
+1.  If your created site is `YOUR-USERNAME/YOUR-SITE-NAME`, update `_config.yml` to:
 
+    ```yaml
+    title: YOUR TITLE
+    description: YOUR DESCRIPTION
+    theme: just-the-docs
 
-### Themes
+    url: https://YOUR-USERNAME.github.io/YOUR-SITE-NAME
 
-Hyde ships with eight optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). Apply a theme to change the color scheme (mostly applies to sidebar and links).
+    aux_links: # remove if you don't want this link to appear on your pages
+      Template Repository: https://github.com/YOUR-USERNAME/YOUR-SITE-NAME
+    ```
 
-![Hyde in red](https://f.cloud.github.com/assets/98681/1831229/42b0b354-7384-11e3-8462-31b8df193fe5.png)
+2.  Push your updated `_config.yml` to your site on GitHub.
 
-There are eight themes available at this time.
+3.  In your newly created repo on GitHub:
+    - go to the `Settings` tab -> `Pages` -> `Build and deployment`, then select `Source`: `GitHub Actions`.
+    - if there were any failed Actions, go to the `Actions` tab and click on `Re-run jobs`.
 
-![Hyde theme classes](https://f.cloud.github.com/assets/98681/1817044/e5b0ec06-6f68-11e3-83d7-acd1942797a1.png)
+## Building and previewing your site locally
 
-To use a theme, add anyone of the available theme classes to the `<body>` element in the `default.html` layout, like so:
+Assuming [Jekyll] and [Bundler] are installed on your computer:
 
-```html
-<body class="theme-base-08">
-  ...
-</body>
-```
+1.  Change your working directory to the root directory of your site.
 
-To create your own theme, look to the Themes section of [included CSS file](https://github.com/poole/hyde/blob/master/public/css/hyde.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
+2.  Run `bundle install`.
 
-### Reverse layout
+3.  Run `bundle exec jekyll serve` to build your site and preview it at `localhost:4000`.
 
-![Hyde with reverse layout](https://f.cloud.github.com/assets/98681/1831230/42b0d3ac-7384-11e3-8d54-2065afd03f9e.png)
+    The built site is stored in the directory `_site`.
 
-Hyde's page orientation can be reversed with a single class.
+## Publishing your built site on a different platform
 
-```html
-<body class="layout-reverse">
-  ...
-</body>
-```
+Just upload all the files in the directory `_site`.
 
+## Customization
 
-## Development
+You're free to customize sites that you create with this template, however you like!
 
-Hyde has two branches, but only one is used for active development.
+[Browse our documentation][Just the Docs] to learn more about how to use this theme.
 
-- `master` for development.  **All pull requests should be submitted against `master`.**
-- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+## Licensing and Attribution
 
+This repository is licensed under the [MIT License]. You are generally free to reuse or extend upon this code as you see fit; just include the original copy of the license (which is preserved when you "make a template"). While it's not necessary, we'd love to hear from you if you do use this template, and how we can improve it for future use!
 
-## Author
+The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party [starter workflows]. A copy of their MIT License is available in [actions/starter-workflows].
 
-**Mark Otto**
-- <https://github.com/mdo>
-- <https://twitter.com/mdo>
+----
 
+[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
 
-## License
-
-Open sourced under the [MIT license](LICENSE.md).
-
-<3
+[Jekyll]: https://jekyllrb.com
+[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
+[GitHub Pages]: https://docs.github.com/en/pages
+[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
+[Bundler]: https://bundler.io
+[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+[`jekyll-default-layout`]: https://github.com/benbalter/jekyll-default-layout
+[`jekyll-seo-tag`]: https://jekyll.github.io/jekyll-seo-tag
+[MIT License]: https://en.wikipedia.org/wiki/MIT_License
+[starter workflows]: https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
+[actions/starter-workflows]: https://github.com/actions/starter-workflows/blob/main/LICENSE

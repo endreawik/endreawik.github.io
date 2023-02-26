@@ -1,26 +1,8 @@
-# Dependencies
-# markdown:         redcarpet
-highlighter:      pygments
+title: Just the Docs Template
+description: A starter template for a Jeykll site using the Just the Docs theme!
+theme: just-the-docs
 
-# Permalinks
-permalink:        pretty
-# relative_permalinks: true
+url: https://endreawik.com
 
-# Setup
-title:            'Endre A Wik'
-tagline:          'I was born for this. Don’t play their game, make them play yours'
-description:      'I was born for this. Don’t play their game, make them play yours'
-url:              'https://endreawik.com/'
-baseurl:          /
-
-author:
-  name:           'Andreas Krøvel'
-  url:            https://twitter.com/endreawik
-
-paginate:         5
-
-# Custom vars
-version:          2.1.0
-
-github:
-  repo:           https://github.com/endreawik/endreawik.github.io
+aux_links:
+  Template Repository: https://github.com/just-the-docs/just-the-docs-template
