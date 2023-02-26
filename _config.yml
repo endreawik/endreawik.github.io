@@ -1,9 +1,17 @@
-title:        'Endre A Wik'
-tagline:      'I was born for this'
-description:  'Don’t play their game, make them play yours.'
-url:          https://endreawik.com
-baseurl:      /
+markdown:       kramdown
+highlighter:    rouge
 
-remote_theme: fongandrew/hydeout
+title:          'Endre A Wik'
+tagline:        'I was born for this'
+description:    'Don’t play their game, make them play yours'
+url:            https://endreawik.com
+baseurl:        /
+
+remote_theme:   fongandrew/hydeout
 
 paginate: 5
+
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
