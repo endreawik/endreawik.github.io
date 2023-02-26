@@ -15,3 +15,7 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
+
+
+
+site.sidebar_home_link: true
