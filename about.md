@@ -1,5 +1,5 @@
 ---
-title:          home
+title:          about
 layout:         default
 sidebar_link:   true
 ---
