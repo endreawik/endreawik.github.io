@@ -18,4 +18,4 @@ plugins:
 
 
 
-site.sidebar_home_link: true
+# site.sidebar_home_link: true
