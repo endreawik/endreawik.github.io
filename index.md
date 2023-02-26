@@ -1,5 +1,5 @@
 ---
-title: My First Page
+title: Endre A Wik
 layout: default
 ---
 
